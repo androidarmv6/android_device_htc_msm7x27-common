@@ -18,15 +18,24 @@
 -->
 
 <device name="Android">
+  <!-- Most values are the incremental current used by a feature,
+       in mA (measured at nominal voltage).
+       The default values are deliberately incorrect dummy values.
+       OEM's must measure and provide actual values before
+       shipping a device.
+       Example real-world values are given in comments, but they
+       are totally dependent on the platform and can vary
+       significantly, so should be measured on the shipping platform
+       with a power meter. -->
   <!-- All values are in mAh except as noted -->
   <item name="none">0</item>
   <item name="screen.on">100</item>
+  <item name="screen.full">160</item>
   <item name="bluetooth.active">142</item>
   <item name="bluetooth.on">0.3</item>
+  <item name="bluetooth.at">35690</item>
   <!-- CPU wakelock held for 830ms on bluetooth headset at command.
        43mA * 830 -->
-  <item name="bluetooth.at">35690</item>
-  <item name="screen.full">160</item>
   <item name="wifi.on">4</item>
   <item name="wifi.active">120</item>
   <item name="wifi.scan">220</item>
@@ -56,21 +65,21 @@
       <value>787200</value>
       <value>806400</value>
   </array>
-  <!-- Power consumption when CPU is idle -->
+  <!-- Current when CPU is idle -->
   <item name="cpu.idle">3.0</item>
-  <!-- Power consumption at different speeds -->
-  <array name="cpu.active"> <!-- Estimated -->
-      <value>30</value>  <!-- 120000 -->
-      <value>32</value>  <!-- 122880 -->
-      <value>45</value>  <!-- 200000 -->
-      <value>60</value>  <!-- 245760 -->
-      <value>74</value>  <!-- 320000 -->
-      <value>88</value>  <!-- 400000 -->
-      <value>100</value> <!-- 480000 -->
-      <value>120</value> <!-- 600000 -->
-      <value>160</value> <!-- 768000 -->
-      <value>170</value> <!-- 787200 -->
-      <value>180</value> <!-- 806400 -->
+  <!-- Current at each CPU speed, as per 'cpu.speeds' -->
+  <array name="cpu.active">    <!-- Estimated -->
+      <value>30</value>        <!-- 120000 -->
+      <value>32</value>        <!-- 122880 -->
+      <value>45</value>        <!-- 200000 -->
+      <value>60</value>        <!-- 245760 -->
+      <value>74</value>        <!-- 320000 -->
+      <value>88</value>        <!-- 400000 -->
+      <value>100</value>       <!-- 480000 -->
+      <value>120</value>       <!-- 600000 -->
+      <value>160</value>       <!-- 768000 -->
+      <value>170</value>       <!-- 787200 -->
+      <value>180</value>       <!-- 806400 -->
   </array>
   <!-- This is the battery capacity in mAh -->
   <item name="battery.capacity">1230</item>

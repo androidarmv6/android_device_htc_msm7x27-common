@@ -19,6 +19,9 @@
 -->
 
 <resources>
-    <dimen name="keyboardHeight">240dp</dimen>
+    <!-- Preferable keyboard height in absolute scale: 1.285in -->
+    <!-- This keyboardHeight value should match with keyboard-heights.xml -->
+    <dimen name="keyboardHeight">205.6dp</dimen>
+
     <integer name="max_more_suggestions_row">4</integer>
 </resources>

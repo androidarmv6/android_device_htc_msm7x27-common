@@ -28,8 +28,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # USB
@@ -48,6 +48,10 @@ PRODUCT_COPY_FILES += \
     device/htc/msm7x27-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/msm7x27-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
+# Bluetooth configuration files
+PRODUCT_COPY_FILES += \
+        system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -60,7 +64,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     copybit.msm7x27 \
     gralloc.msm7x27 \
-    hwcomposer.msm7x27 \
     libgenlock \
     libmemalloc \
     liboverlay \
@@ -81,6 +84,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm7x27 \
     com.android.future.usb.accessory \
+    brcm_patchram_plus \
     Superuser
 
 ### Add system daemons
@@ -98,7 +102,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.enable.dtm=1 \
     ro.ril.hsdpa.category=8 \
     ro.ril.hsupa.category=5 \
-    ro.ril.disable.fd.plmn.prefix=23402,23410,23411 \
     ro.ril.def.agps.mode=2 \
     ro.ril.hsxpa=2 \
     ro.ril.gprsclass=12
@@ -121,33 +124,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.enabletr=false \
     debug.composition.type=gpu \
     com.qc.hardware=true \
-    com.qc.hdmi_out=false
+    hwui.print_config=choice
+
+# Stagefright
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-meta=false \
+    media.stagefright.enable-scan=false \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=1
 
-# For emmc phone storage
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.phone_storage=0
-
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
-    settings.display.autobacklight=1 \
     settings.display.brightness=143 \
-    persist.service.mount.playsnd=0 \
     ro.com.google.locationfeatures=1 \
-    ro.setupwizard.mode=OPTIONAL \
     ro.setupwizard.enable_bypass=1 \
-    ro.media.dec.aud.wma.enabled=1 \
-    ro.media.dec.vid.wmv.enabled=1 \
-    dalvik.vm.dexopt-flags=m=y \
-    ro.config.sync=yes \
     persist.sys.usb.config=mass_storage,adb \
     dalvik.vm.dexopt-data-only=1
-
-# Disable ADB authentication until it works
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
@@ -161,4 +159,4 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Include Adreno200 vendor blobs
 # http://git.cryptomilk.org/projects/marvel/android_vendor_qcom_msm7x27.git/
-$(call inherit-product-if-exists, vendor/qcom/msm7x27/qcom-vendor.mk)
+$(call inherit-product, vendor/qcom/msm7x27/qcom-vendor.mk)
