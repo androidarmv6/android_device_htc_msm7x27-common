@@ -450,7 +450,10 @@ CameraHAL_FixupParams(android::CameraParameters &settings)
 #endif
 
    if (!settings.get(android::CameraParameters::KEY_VIDEO_SIZE)) {
+      settings.set("record-size", preferred_size);
       settings.set(android::CameraParameters::KEY_VIDEO_SIZE, preferred_size);
+   } else {
+      settings.set("record-size", settings.get(android::CameraParameters::KEY_VIDEO_SIZE)); 
    }
 
    if (!settings.get(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
