@@ -102,7 +102,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ## Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.lockprof.threshold=500 \
-    dalvik.vm.checkjni=0 \
+    dalvik.vm.checkjni=false \
     dalvik.vm.dexopt-data-only=1 \
     dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y \
     dalvik.vm.heapstartsize=5m \
@@ -122,6 +122,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
+
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Inherit mdpi-common
 $(call inherit-product, device/mdpi-common/mdpi.mk)
