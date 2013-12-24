@@ -116,8 +116,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Disable ADB authentication until it works
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 
-# We have enough storage space to hold precise GC data
-#PRODUCT_TAGS += dalvik.gc.type-precise
+# SELinux - we're not ready for enforcing mode yet
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.selinux=permissive
+
+BOARD_SEPOLICY_DIRS += device/htc/msm7x27-common/sepolicy
+BOARD_SEPOLICY_UNION += \
+    file_contexts
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
