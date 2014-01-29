@@ -33,6 +33,7 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm7x27
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 
 ### Wifi related defines
+USE_LEGACY_SOFTAP                := true
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WLAN_DEVICE                := bcm4329
 BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
