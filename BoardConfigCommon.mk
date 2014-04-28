@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+-include device/qcom/msm7x27/BoardConfigCommon.mk
+
 TARGET_SPECIFIC_HEADER_PATH := device/htc/msm7x27-common/include
 
 # Make sure this folder exists so display stuff doesn't fail
@@ -20,17 +22,7 @@ $(shell mkdir -p $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/)
 # inherit from common msm7x27 Recovery
 -include device/htc/msm7x27-recovery/BoardConfigCommon.mk
 
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv6-vfp
-TARGET_ARCH_LOWMEM := true
-TARGET_CPU_ABI := armeabi-v6l
-TARGET_CPU_ABI2 := armeabi
-TARGET_BOARD_PLATFORM := msm7x27
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
-
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
 
 TARGET_PROVIDES_LIBLIGHT := true
 
@@ -55,14 +47,7 @@ BOARD_WLAN_DEVICE_REV            := bcm4329
 WIFI_BAND                        := 802_11_ABG
 
 ### Graphics
-# Option for choosing texture target on old adrenos
-BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-BOARD_EGL_CFG := device/htc/msm7x27-common/egl.cfg
-BOARD_EGL_NEEDS_LEGACY_FB := true
-
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK -DQCOM_LEGACY_OMX -DQCOM_ICS_COMPAT
-USE_OPENGL_RENDERER := true
-TARGET_QCOM_DISPLAY_VARIANT := legacy
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
 TARGET_USES_C2D_COMPOSITION := false
 TARGET_USES_SF_BYPASS := false
 TARGET_HAVE_BYPASS := false
@@ -73,15 +58,12 @@ TARGET_USES_GENLOCK := true
 TARGET_NO_HW_VSYNC := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_MISSING_PIXEL_FORMATS
 
-#TARGET_NO_HW_OVERLAY := true
 #TARGET_DISABLE_TRIPLE_BUFFERING := true
 
 ### Camera
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 #BOARD_USES_LEGACY_CAMERA := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
-#TARGET_DISABLE_ARM_PIE := true
 
 ### Audio
 BOARD_USES_GENERIC_AUDIO := false
@@ -107,8 +89,6 @@ TARGET_SCREEN_HEIGHT := 480
 TARGET_SCREEN_WIDTH := 320
 
 ### QCOM
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_GPS := true
 BOARD_USE_QCOM_PMEM := true
@@ -122,16 +102,5 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 ## Minimal fonts
 SMALLER_FONT_FOOTPRINT := true
 
-### Dalvik
-# If WITH_JIT is configured, build multiple versions of libdvm.so to facilitate
-# correctness/performance bugs triage
-WITH_JIT := true
-
-### Webkit
-TARGET_FORCE_CPU_UPLOAD := true
-
 ### Browser
-JS_ENGINE := v8
-HTTP := chrome
-ENABLE_JSC_JIT := true
 ENABLE_WEBGL := true

@@ -18,18 +18,13 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/msm7x27-common/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # USB
@@ -48,37 +43,19 @@ PRODUCT_COPY_FILES += \
     device/htc/msm7x27-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/msm7x27-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
-# Bluetooth configuration files
-PRODUCT_COPY_FILES += \
-        system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
-
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
     audio_policy.msm7x27 \
     audio.primary.msm7x27 \
-    libtinyalsa \
-    libaudioutils
+    libtinyalsa
 
 # Video
 PRODUCT_PACKAGES += \
-    copybit.msm7x27 \
-    gralloc.msm7x27 \
-    libgenlock \
-    libmemalloc \
-    liboverlay \
-    libqdutils \
     libtilerenderer
 
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm7x27
-
-# QCOM OMX
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libOmxCore \
-    libmm-omxcore
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -115,29 +92,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160 \
-    ro.opengles.version=131072 \
-    ro.opengles.surface.rgb565=true \
     debug.sf.hw=1 \
-    debug.qctwa.statusbar=1 \
-    debug.qctwa.preservebuf=1 \
-    debug.hwui.render_dirty_regions=false \
-    debug.enabletr=false \
-    debug.composition.type=gpu \
-    com.qc.hardware=true \
-    hwui.print_config=choice
-
-# Stagefright
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-meta=false \
-    media.stagefright.enable-scan=false \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-qcp=true
-
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.camcorder.disablemeta=1
+    debug.composition.type=gpu
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -149,6 +105,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Inherit qcom/msm7x27
+$(call inherit-product, device/qcom/msm7x27/msm7x27.mk)
 
 ### Artwork
 PRODUCT_LOCALES += mdpi
