@@ -43,21 +43,21 @@ PRODUCT_COPY_FILES += \
     device/htc/msm7x27-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/msm7x27-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
-# Audio
+## Audio
 PRODUCT_PACKAGES += \
     audio_policy.msm7x27 \
     audio.primary.msm7x27 \
     libtinyalsa
 
-# Video
+## Video
 PRODUCT_PACKAGES += \
     libtilerenderer
 
-# Camera
-PRODUCT_PACKAGES += \
-    camera.msm7x27
+## Camera
+#PRODUCT_PACKAGES += \
+#    camera.msm7x27
 
-# Misc
+## Misc
 PRODUCT_PACKAGES += \
     lights.msm7x27 \
     com.android.future.usb.accessory \
@@ -73,7 +73,7 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# RIL
+## RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libhtc_ril.so \
     ro.ril.enable.dtm=1 \
@@ -83,28 +83,45 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=2 \
     ro.ril.gprsclass=12
 
-# Interfaces
+## Interfaces
 PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0 \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
-# Graphics
+## Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160 \
     debug.sf.hw=1 \
-    debug.composition.type=gpu
+    debug.sf.no_hw_vsync=1 \
+    debug.gr.numframebuffers=2 \
+    debug.composition.type=gpu \
+    persist.sys.prefer_16bpp=1 \
+    persist.sys.use_dithering=0
 
-# Misc
+## Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
-    settings.display.brightness=143 \
-    ro.com.google.locationfeatures=1 \
+    dalvik.vm.lockprof.threshold=500 \
+    dalvik.vm.checkjni=0 \
+    dalvik.vm.dexopt-data-only=1 \
+    dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y \
+    dalvik.vm.heapstartsize=5m \
+    dalvik.vm.heapgrowthlimit=24m \
+    dalvik.vm.heapsize=64m
+
+## Misc
+PRODUCT_PROPERTY_OVERRIDES += \
+    settings.display.brightness=100 \
+    ro.com.google.locationfeatures=0 \
     ro.setupwizard.enable_bypass=1 \
     persist.sys.usb.config=mass_storage,adb \
-    dalvik.vm.dexopt-data-only=1
+    persist.sys.purgeable_assets=1
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Inherit mdpi-common
+$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 # Inherit qcom/msm7x27
 $(call inherit-product, device/qcom/msm7x27/msm7x27.mk)
