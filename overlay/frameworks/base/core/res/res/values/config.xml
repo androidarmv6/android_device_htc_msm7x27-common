@@ -108,4 +108,7 @@
         <!-- The Google Network Location Services location provider -->
         <item>com.google.android.location</item>
     </string-array>
+
+    <!-- Override value set in qcom/msm7x27 -->
+    <bool name="config_sf_limitedAlpha">false</bool>
 </resources>
