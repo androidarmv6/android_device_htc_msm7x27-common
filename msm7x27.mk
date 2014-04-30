@@ -97,8 +97,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.gr.numframebuffers=2 \
     debug.composition.type=gpu \
     persist.sys.prefer_16bpp=1 \
-    persist.sys.use_dithering=0 \
-    ro.bq.gpu_to_cpu_unsupported=1
+    persist.sys.use_dithering=0
 
 ## Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
