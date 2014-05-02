@@ -27,7 +27,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_PROVIDES_LIBLIGHT := true
 
 ### Kernel
-TARGET_KERNEL_SOURCE := kernel/htc/msm7227
+TARGET_KERNEL_SOURCE := kernel/htc/msm7x27
 
 ### USB Mass Storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
