@@ -141,3 +141,5 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 # Include Adreno200 vendor blobs
 # http://git.cryptomilk.org/projects/marvel/android_vendor_qcom_msm7x27.git/
 $(call inherit-product, vendor/qcom/msm7x27/qcom-vendor.mk)
+
+$(call inherit-product, vendor/htc/msm7x27-common/vendor.mk)
