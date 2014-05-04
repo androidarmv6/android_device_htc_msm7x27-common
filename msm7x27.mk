@@ -49,10 +49,6 @@ PRODUCT_PACKAGES += \
     audio.primary.msm7x27 \
     libtinyalsa
 
-## Video
-PRODUCT_PACKAGES += \
-    libtilerenderer
-
 ## Camera
 #PRODUCT_PACKAGES += \
 #    camera.msm7x27
