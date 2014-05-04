@@ -1,0 +1,1 @@
+/* Empty header to fix the build of libstagefright */
