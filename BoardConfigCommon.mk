@@ -105,7 +105,6 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 
 ## Minimal fonts
 SMALLER_FONT_FOOTPRINT := true
-MINIMAL_FONT_FOOTPRINT := true
 
 ### Browser
 ENABLE_WEBGL := true
