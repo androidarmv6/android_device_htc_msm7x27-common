@@ -16,6 +16,7 @@ lib/libOpenVG.so
 app/Exchange2.apk
 app/Email.apk
 app/Email2.apk
+priv-app/CMUpdater.apk
 
 # Video editor (5MB)
 app/VideoEditor.apk
