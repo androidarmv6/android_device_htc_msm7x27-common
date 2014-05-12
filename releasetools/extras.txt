@@ -1,6 +1,4 @@
 # Unused libraries
-lib/hw/audio_policy.default.so
-lib/hw/audio.primary.default.so
 lib/hw/gralloc.default.so
 
 # Junk (build artifacts)
