@@ -1,6 +1,3 @@
-# Unused libraries
-lib/hw/gralloc.default.so
-
 # Junk (build artifacts)
 lib/crtbegin_so.o
 lib/crtend_so.o
@@ -10,6 +7,7 @@ lib/libC2D2.so
 lib/libOpenVG.so
 
 # Extra apps
+app/CMWallpapers.apk
 app/Exchange2.apk
 app/Email.apk
 app/Email2.apk
