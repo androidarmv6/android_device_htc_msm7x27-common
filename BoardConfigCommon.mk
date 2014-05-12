@@ -103,9 +103,6 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27
 BOARD_USES_LEGACY_RIL := true
 BOARD_USE_NEW_LIBRIL_HTC := true
 
-## Minimal fonts
-SMALLER_FONT_FOOTPRINT := true
-
 ### Browser
 ENABLE_WEBGL := true
 
