@@ -2,7 +2,6 @@
 lib/hw/audio_policy.default.so
 lib/hw/audio.primary.default.so
 lib/hw/gralloc.default.so
-lib/hw/power.default.so
 
 # Junk (build artifacts)
 lib/crtbegin_so.o
