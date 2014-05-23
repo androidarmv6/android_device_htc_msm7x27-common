@@ -1,4 +1,4 @@
-RECOVERY_NAME := CWM Recovery by Team Simplicit
+RECOVERY_NAME := CWM by Team Simplicit
 
 BOARD_USES_MSM7X27_RECOVERY := true
 BOARD_USES_MMCUTILS := false
