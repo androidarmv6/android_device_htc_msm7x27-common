@@ -28,6 +28,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 ### Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/msm7x27
+MINIGZIP := $(shell which lzma)
 
 ### USB Mass Storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
