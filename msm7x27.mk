@@ -113,6 +113,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage,adb \
     persist.sys.purgeable_assets=1
 
+# Changelog
+PRODUCT_COPY_FILES += \
+    device/htc/msm7x27-common/releasetools/changelog.txt:system/etc/CHANGELOG-CM.txt
+
 # Disable ADB authentication until it works
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 
