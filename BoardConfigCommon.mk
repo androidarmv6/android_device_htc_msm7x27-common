@@ -104,6 +104,11 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27
 BOARD_USES_LEGACY_RIL := true
 BOARD_USE_NEW_LIBRIL_HTC := true
 
+### SELinux
+BOARD_SEPOLICY_DIRS += device/htc/msm7x27-common/sepolicy
+BOARD_SEPOLICY_UNION += \
+    file_contexts
+
 ### Browser
 ENABLE_WEBGL := true
 
