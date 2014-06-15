@@ -126,21 +126,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
+$(call inherit-product, vendor/htc/msm7x27-common/vendor.mk)
+
 # Inherit mdpi-common
 $(call inherit-product, device/mdpi-common/mdpi.mk)
 
 # Inherit qcom/msm7x27
 $(call inherit-product, device/qcom/msm7x27/msm7x27.mk)
 
-### Artwork
-PRODUCT_LOCALES += mdpi
+# Install/Uninstall google apps
+$(call inherit-product, vendor/google/gapps_armv6_tiny.mk)
 
 # Fall back to hdpi when mdpi is missing
 PRODUCT_AAPT_CONFIG := normal mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
-
-# Include Adreno200 vendor blobs
-# http://git.cryptomilk.org/projects/marvel/android_vendor_qcom_msm7x27.git/
-$(call inherit-product, vendor/qcom/msm7x27/qcom-vendor.mk)
-
-$(call inherit-product, vendor/htc/msm7x27-common/vendor.mk)
