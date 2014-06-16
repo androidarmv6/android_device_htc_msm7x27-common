@@ -111,7 +111,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=0 \
     ro.setupwizard.enable_bypass=1 \
     persist.sys.usb.config=mass_storage,adb \
-    persist.sys.purgeable_assets=1
+    persist.sys.purgeable_assets=1 \
+    ro.config.hw_quickpoweron=true
 
 # Changelog
 PRODUCT_COPY_FILES += \
