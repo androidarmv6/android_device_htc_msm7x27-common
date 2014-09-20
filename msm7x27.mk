@@ -113,6 +113,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage,adb \
     persist.sys.purgeable_assets=1
 
+# Reduce background apps limit to 12 on low-tier devices
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.bg_apps_limit=12
+
+# Set max background services
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.max_starting_bg=6
+
 # Changelog
 PRODUCT_COPY_FILES += \
     device/htc/msm7x27-common/releasetools/changelog.txt:system/etc/CHANGELOG-CM.txt
