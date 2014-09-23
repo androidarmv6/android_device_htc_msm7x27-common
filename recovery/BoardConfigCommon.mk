@@ -22,3 +22,5 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 endif
 
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+
+TW_EXCLUDE_MTP := true
