@@ -115,3 +115,5 @@ TARGET_OTA_EXTRAS_FILE := device/htc/msm7x27-common/releasetools/extras.txt
 
 ## TEMPORARY HACK: skip building external/chromium_org/
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
+
+TARGET_USERIMAGES_USE_EXT4 := true
