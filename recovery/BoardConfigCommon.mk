@@ -24,3 +24,4 @@ endif
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
 TW_EXCLUDE_MTP := true
+TW_DISABLE_TTF := true
